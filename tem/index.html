@@ -170,11 +170,11 @@
             })
           })
           .then((response) => {
-            alret(response);
+            alert(response);
             response.json()
           })
           .then((result) => {
-            alret(result)
+            alert(result)
             result = JSON.parse(result)
             console.log(result.items.item)
             result.items.item.forEach(e => {
