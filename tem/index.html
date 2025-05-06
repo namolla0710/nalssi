@@ -92,30 +92,33 @@
       td {
         text-align: center;
       }
+      #wid100vw {
+        width: 100vw;
+
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;  
+        align-content: center;
+      }
     </style>
   </head>
   <body>
-    <div>
-      <div>
-        <h1><span id="sido"></span> <span id="sigugun"></span> <span id="dongmyun"></span></h1>
-        <table>
-          <tr>
-            <td><img id="gion" src="/img/gion.png"></td>
-            <td><img id="hum" src="/img/humidity.png"></td>
-            <td><img id="hum" src="/img/rain.png"></td>
-            <td><div id="chim_gide"><div id="vec_chim"></div></div></td>
-          </tr>
-          <tr>
-            <td><span id="T1H"></span>℃</td>
-            <td><span id="REH"></span>%</td>
-            <td><span id="RN1"></span>mm</td>
-            <td><span id="vec_bang"></span> | <span id="VEC"></span>도<br><span id="WSD"></span>m/s</td>
-          </tr>
-        </table>
-         
-      </div>
-      <div id="wid100vw">
-      </div>
+    <div id="wid100vw">
+      <h1><span id="sido"></span> <span id="sigugun"></span> <span id="dongmyun"></span></h1>
+      <table>
+        <tr>
+          <td><img id="gion" src="/img/gion.png"></td>
+          <td><img id="hum" src="/img/humidity.png"></td>
+          <td><img id="hum" src="/img/rain.png"></td>
+          <td><div id="chim_gide"><div id="vec_chim"></div></div></td>
+        </tr>
+        <tr>
+          <td><span id="T1H"></span>℃</td>
+          <td><span id="REH"></span>%</td>
+          <td><span id="RN1"></span>mm</td>
+          <td><span id="vec_bang"></span> | <span id="VEC"></span>도<br><span id="WSD"></span>m/s</td>
+        </tr>
+      </table>
     </div>
     <script>
       var RE = 6371.00877;
