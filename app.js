@@ -3,8 +3,8 @@ const app = express();
 const port = 4357;
 
 var bodyParser = require('body-parser');
-
-var request = require('request');
+  
+const axios = require("axios");
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json());
@@ -38,21 +38,26 @@ function requestNalssi(year, month, day, hour, min, x, y, res){
   console.log(String(Math.floor(min)).padEnd(2, "0"), time)
 
   var url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
-  
-  request.get({
-    url: url,
-    qs: {
-        serviceKey: 'HTYEX8TzfOhfIF4IZVtuOMkwVOn/keASj8phfIrl6ckqqYuDr8diWCoXsPRFQvvV3IRJeXvt/wUVca+nRUgiDQ==',
-        pageNo: encodeURIComponent('1'),
-        numOfRows: encodeURIComponent('1000'),
-        dataType: encodeURIComponent('JSON'),
-        base_date: encodeURIComponent(date),
-        base_time: encodeURIComponent(time),
-        nx: encodeURIComponent(String(x)),
-        ny: encodeURIComponent(String(y))
+
+
+  axios.get(url, {
+    params: {
+      serviceKey: 'HTYEX8TzfOhfIF4IZVtuOMkwVOn/keASj8phfIrl6ckqqYuDr8diWCoXsPRFQvvV3IRJeXvt/wUVca+nRUgiDQ==',
+      pageNo: '1',
+      numOfRows: '1000',
+      dataType: 'JSON',
+      base_date: date,
+      base_time: time,
+      nx: String(x),
+      ny: String(y)
     }
-  }, function (error, response, body) {
-    res.send(JSON.stringify(body))
+  })
+  .then(response => {
+    res.send(JSON.stringify(response.data));
+  })
+  .catch(error => {
+    console.error(error);
+    res.status(500).send("API 요청 중 오류 발생");
   });
 }
 
