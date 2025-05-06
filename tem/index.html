@@ -173,8 +173,8 @@
           .then((result) => {
             alret(result)
             result = JSON.parse(result)
-            console.log(result.response.body.items.item)
-            result.response.body.items.item.forEach(e => {
+            console.log(result.items.item)
+            result.items.item.forEach(e => {
               data[e?.category] = e?.obsrValue
             });
             naver.maps.Service.reverseGeocode({
