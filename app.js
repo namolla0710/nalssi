@@ -40,7 +40,8 @@ function requestNalssi(year, month, day, hour, min, x, y, res){
   var url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
 
 
-  axios.get(url, {
+  axios.get({
+    url: url,
     params: {
       serviceKey: 'HTYEX8TzfOhfIF4IZVtuOMkwVOn/keASj8phfIrl6ckqqYuDr8diWCoXsPRFQvvV3IRJeXvt/wUVca+nRUgiDQ==',
       pageNo: '1',
