@@ -171,6 +171,7 @@
           })
           .then((response) => response.json())
           .then((result) => {
+            alret(result)
             result = JSON.parse(result)
             console.log(result.response.body.items.item)
             result.response.body.items.item.forEach(e => {
