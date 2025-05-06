@@ -169,7 +169,10 @@
               min: min / 10
             })
           })
-          .then((response) => response.json())
+          .then((response) => {
+            alret(response);
+            response.json()
+          })
           .then((result) => {
             alret(result)
             result = JSON.parse(result)
