@@ -4,8 +4,6 @@ const port = 4357;
 
 var bodyParser = require('body-parser');
 
-const sqlite3 = require("sqlite3").verbose();
-
 var request = require('request');
 
 app.use(bodyParser.urlencoded({extended: false}))

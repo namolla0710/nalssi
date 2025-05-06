@@ -6,13 +6,12 @@
   "author": "Kim Minchan",
   "type": "commonjs",
   "scripts": {
-    "run": "node app.js"
+    "run": "nodemon app.js"
   },
   "dependencies": {
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "nodemon": "^3.1.10",
-    "request": "^2.88.2",
-    "sqlite3": "^5.1.7"
+    "request": "^2.88.2"
   }
 }
