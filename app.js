@@ -24,6 +24,7 @@ app.post('/getData', (req, res) => {
   const day = req.body.day;
   const hour = req.body.hour;
   const min = req.body.min;
+  
   requestNalssi(year, month, day, hour, min, x, y, res);
 })
 
@@ -35,11 +36,8 @@ function requestNalssi(year, month, day, hour, min, x, y, res){
     hour--;
   }
   var time = String(hour).padStart(2, "0") + String(Math.floor(min)).padEnd(2, "0");
-  console.log(String(Math.floor(min)).padEnd(2, "0"), time)
 
   var url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst';
-
-
   axios.get(url, {
     params: {
       serviceKey: 'HTYEX8TzfOhfIF4IZVtuOMkwVOn/keASj8phfIrl6ckqqYuDr8diWCoXsPRFQvvV3IRJeXvt/wUVca+nRUgiDQ==',
@@ -54,7 +52,7 @@ function requestNalssi(year, month, day, hour, min, x, y, res){
   })
   .then(response => {
     console.log(JSON.stringify(response.data.response.body));
-     res.json(response.data.response.body.response.body);
+    res.send(JSON.stringify(response.data.response.body));
   })
   .catch(error => {
     console.error(error);

@@ -170,13 +170,10 @@
             })
           })
           .then((response) => {
-            response.json()
-            alert(response);
+            return response.json();
           })
           .then((result) => {
-            alert(result)
-            result = JSON.parse(result)
-            console.log(result.items.item)
+            console.log(result)
             result.items.item.forEach(e => {
               data[e?.category] = e?.obsrValue
             });
