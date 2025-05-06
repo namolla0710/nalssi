@@ -53,6 +53,7 @@ function requestNalssi(year, month, day, hour, min, x, y, res){
     }
   })
   .then(response => {
+    console.log(response);
     res.json(response.data);
   })
   .catch(error => {
