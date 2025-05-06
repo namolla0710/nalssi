@@ -53,11 +53,11 @@ function requestNalssi(year, month, day, hour, min, x, y, res){
     }
   })
   .then(response => {
-    res.json(response.data.response.body);
+    console.log(JSON.stringify(response.data.response.body));
+     res.json(response.data.response.body.response.body);
   })
   .catch(error => {
     console.error(error);
-    res.status(500).send("API 요청 중 오류 발생");
   });
 }
 
